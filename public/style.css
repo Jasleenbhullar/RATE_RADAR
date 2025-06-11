@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+}
+
+.hero {
+   
+    text-align: center;
+    padding: 50px;
+    color: rgb(100, 86, 153);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(100,86,153,0.10);
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: rgb(100, 86, 153);
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(100,86,153,0.18);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.card a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.card a:visited {
+    color: inherit;
+}
+
+.container {
+    max-width: 700px;
+    margin: 32px auto;
+    padding: 32px;
+    background: white;
+    box-shadow: 0 4px 16px rgba(100,86,153,0.10);
+    border-radius: 12px;
+}
+
+.reviews {
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #e0e0e0;
+    padding: 16px;
+    background: #faf8ff;
+    border-radius: 8px;
+    color: rgb(100, 86, 153);
+}
+
+.review-card {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 1.05em;
+}
+
+.review-card:last-child {
+    border-bottom: none;
+}
+
+form input, form textarea, form select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+button {
+    background: #645699;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #b4a7f6;
+}
+
+
+.add-place {
+    margin: 40px auto;
+    max-width: 400px;
+    text-align: center;
+    color: rgb(100, 86, 153);
+}
+
+.add-place input {
+    display: block;
+    margin: 10px auto;
+    padding: 8px;
+    width: 80%;
+}
+
+.add-place button {
+    padding: 8px 16px;
+}
+
+.add-place-card {
+    background: #f8f6ff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(100,86,153,0.10);
+    padding: 24px;
+    margin: 32px auto 24px auto;
+    max-width: 500px;
+    text-align: center;
+    color: rgb(100, 86, 153);
+    transition: transform 0.3s;
+}
+
+.add-place-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(100,86,153,0.18);
+}
+
+.add-place-card input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.add-place-card button {
+    padding: 10px 20px;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header', { title: "Search Results" }) %>
+
+<div class="container">
+    <h1>Search Results</h1>
+    <% if (place) { %>
+        <div class="place-card" style="margin-bottom: 1.5em;">
+            <h2><%= place.name %></h2>
+            <p>Location: <%= place.location %></p>
+            <% if (typeof place.avgRating !== 'undefined' && place.avgRating !== null) { %>
+                <p>Average Rating: <%= place.avgRating %> / 5
+                    <span style="color: gold;">
+                        <% for (let i = 1; i <= 5; i++) { %>
+                            <% if (i <= Math.round(place.avgRating)) { %>★<% } else { %>☆<% } %>
+                        <% } %>
+                    </span>
+                </p>
+            <% } %>
+        </div>
+
+        <h3>Reviews:</h3>
+        <div class="reviews">
+            <% if (reviews.length > 0) { %>
+                <% reviews.forEach(review => { %>
+                    <div class="review-card">
+                        <strong><%= review.name %></strong>: <%= review.comment %>
+                        <br>
+                        <span style="color: gold;">
+                            <% for (let i = 1; i <= 5; i++) { %>
+                                <% if (i <= review.rating) { %>★<% } else { %>☆<% } %>
+                            <% } %>
+                        </span>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>No reviews yet for this place.</p>
+            <% } %>
+        </div>
+    <% } else if (notFound) { %>
+        <p>No place found matching your search query.</p>
+    <% } %>
+    <a href="/">Back to Home</a>
+</div>
+<%- include('partials/footer') %> 
+
+</html>

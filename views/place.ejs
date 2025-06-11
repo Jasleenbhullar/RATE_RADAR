@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= place.name %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 style="margin-bottom: 0.2em;"><%= place.name %></h1>
+        <p style="font-size: 1.1em; color: #666; margin-bottom: 1em;">Location: <%= place.location %></p>
+        <% if (typeof avgRating !== 'undefined' && avgRating !== null) { %>
+            <p style="font-size: 1.1em;">Average Rating: <%= avgRating %> / 5
+                <span style="color: gold;">
+                    <% for (let i = 1; i <= 5; i++) { %>
+                        <% if (i <= Math.round(avgRating)) { %>★<% } else { %>☆<% } %>
+                    <% } %>
+                </span>
+            </p>
+        <% } %>
+        <h3 style="margin-top: 2em;">Reviews:</h3>
+        <div class="reviews">
+            <% if (reviews.length > 0) { %>
+                <% reviews.forEach(review => { %>
+                    <div class="review-card">
+                        <strong><%= review.name %></strong>: <%= review.comment %>
+                        <br>
+                        <span style="color: gold;">
+                            <% for (let i = 1; i <= 5; i++) { %>
+                                <% if (i <= review.rating) { %>★<% } else { %>☆<% } %>
+                            <% } %>
+                        </span>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <p>No reviews yet for this place.</p>
+            <% } %>
+        </div>
+        <h3 style="margin-top: 2em;">Add a Review:</h3>
+        <form method="POST" action="/place/<%= place._id %>/review" style="margin-bottom: 2em;">
+            <input type="text" name="name" placeholder="Your Name" required/>
+            <textarea name="comment" placeholder="Your Review" required></textarea>
+            <label for="rating">Rating:</label>
+            <select name="rating" id="rating" required>
+                <option value="">Select</option>
+                <% for (let i = 1; i <= 5; i++) { %>
+                    <option value="<%= i %>"><%= i %> Star<%= i > 1 ? 's' : '' %></option>
+                <% } %>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+        <button onclick="history.back()">Back</button>
+    </div>
+</body>
+</html>
